@@ -54,7 +54,16 @@ def process_csv_files(input_folder, output_folder):
     
     common_columns = identify_common_columns(csv_files)
     
-    # [...]
+    for csv_file in csv_files:
+        df = pd.read_csv(csv_file)
+
+        # Select only common columns
+        df_common = df[common_columns]
+
+        # Save processed CSV files
+        output_filename = os.path.basename(csv_file)
+        output_path = os.path.join(output_folder, output_filename)
+        df_common.to_csv(output_path, index=False)
     
 if __name__ == "__main__":
     input_folder = "spreadsheets_input"  # Replace with actual input folder path
