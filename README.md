@@ -14,6 +14,9 @@ Feel free to customize this summary further to match your project’s specifics.
 ## User Guide
 
 ## Documentation
+### DataHarmonizer
+
+### DataAnalyzer
 
 ## References and Acknowledgments
 Special thanks to Dr. Leila Issa of LAU’s Department of Mathematics for her support and inspiration throughout this project. 🙌

@@ -26,3 +26,14 @@ def convert_excel_to_csv(input_folder, output_folder):
 
             # Save as CSV
             df.to_csv(csv_path, index=False)
+            
+if __name__ == "__main__":
+    input_folder = "spreadsheets_input"  # Replace with actual input folder path
+    output_folder = "spreadsheets_output"  # Replace with actual output folder path
+
+    # Step 1: Convert Excel to CSV
+    convert_excel_to_csv(input_folder, output_folder)
+
+    # Step 2: Identify common columns
+
+    print("Processing completed. CSV files saved in the output folder.")
