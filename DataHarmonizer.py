@@ -28,9 +28,20 @@ def convert_excel_to_csv(input_folder, output_folder):
             df.to_csv(csv_path, index=False)
 
 def identify_common_columns(csv_files):
+    """
+    Identifies common columns across multiple CSV files.
+
+    Args:
+        csv_files (list): List of paths to CSV files.
+
+    Returns:
+        set: Set of common column names.
+    """
+    # Read the first CSV file to get column names
     first_csv = pd.read_csv(csv_files[0])
     common_columns = set(first_csv.columns)
 
+    # Compare with other CSV files
     for csv_file in csv_files[1:]:
         df = pd.read_csv(csv_file)
         common_columns &= set(df.columns)
