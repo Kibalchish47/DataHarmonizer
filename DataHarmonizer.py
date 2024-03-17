@@ -47,7 +47,15 @@ def identify_common_columns(csv_files):
         common_columns &= set(df.columns)
 
     return common_columns
-       
+
+def process_csv_files(input_folder, output_folder):
+
+    csv_files = [os.path.join(input_folder, filename) for filename in os.listdir(input_folder) if filename.endswith(".csv")]
+    
+    common_columns = identify_common_columns(csv_files)
+    
+    # [...]
+    
 if __name__ == "__main__":
     input_folder = "spreadsheets_input"  # Replace with actual input folder path
     output_folder = "spreadsheets_output"  # Replace with actual output folder path
