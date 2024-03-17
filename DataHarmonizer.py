@@ -1,9 +1,14 @@
 # Imports
 import os
 import pandas as pd
-
 def convert_excel_to_csv(input_folder, output_folder):
-    
+    """
+    Converts Excel files in the input folder to CSV files in the output folder.
+
+    Args:
+        input_folder (str): Path to the input folder containing Excel files.
+        output_folder (str): Path to the output folder where CSV files will be saved.
+    """
     os.makedirs(output_folder, exist_ok=True)
 
     for filename in os.listdir(input_folder):
