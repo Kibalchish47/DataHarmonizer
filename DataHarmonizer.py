@@ -26,7 +26,17 @@ def convert_excel_to_csv(input_folder, output_folder):
 
             # Save as CSV
             df.to_csv(csv_path, index=False)
-            
+
+def identify_common_columns(csv_files):
+    first_csv = pd.read_csv(csv_files[0])
+    common_columns = set(first_csv.columns)
+
+    for csv_file in csv_files[1:]:
+        df = pd.read_csv(csv_file)
+        common_columns &= set(df.columns)
+
+    return common_columns
+       
 if __name__ == "__main__":
     input_folder = "spreadsheets_input"  # Replace with actual input folder path
     output_folder = "spreadsheets_output"  # Replace with actual output folder path
