@@ -49,11 +49,20 @@ def identify_common_columns(csv_files):
     return common_columns
 
 def process_csv_files(input_folder, output_folder):
+    """
+    Processes CSV files by selecting common columns and saving them in the output folder.
 
+    Args:
+        input_folder (str): Path to the input folder containing CSV files.
+        output_folder (str): Path to the output folder where processed CSV files will be saved.
+    """
+    # The final result is a list of full paths to all CSV files in the input folder, 
+    # stored in the csv_files variables
     csv_files = [os.path.join(input_folder, filename) for filename in os.listdir(input_folder) if filename.endswith(".csv")]
     
     common_columns = identify_common_columns(csv_files)
-    
+
+    # Process each CSV file
     for csv_file in csv_files:
         df = pd.read_csv(csv_file)
 
